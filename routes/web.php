@@ -10,7 +10,7 @@ Route::view('/', 'welcome')->name('home');
 
 Route::get('/static', [StaticController::class, 'index'])->name('static');
 
-Route::resource('/article', ArticleController::class);
+Route::resource('/articles', ArticleController::class);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');

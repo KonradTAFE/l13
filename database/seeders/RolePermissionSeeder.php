@@ -36,10 +36,11 @@ class RolePermissionSeeder extends Seeder
             ['permission' => 'staff-only', 'roles' => ['staff']],
             ['permission' => 'admin-only', 'roles' => ['admin']],
 
-            ['permission' => 'articles-view', 'roles' => ['admin','staff', 'client', 'editor', 'writer']],
+            ['permission' => 'articles-view', 'roles' => ['admin', 'staff', 'client', 'editor', 'writer']],
             ['permission' => 'articles-add', 'roles' => ['admin', 'writer']],
             ['permission' => 'articles-edit', 'roles' => ['admin', 'writer', 'editor']],
             ['permission' => 'articles-publish', 'roles' => ['admin', 'editor', 'staff']],
+            ['permission' => 'articles-delete', 'roles' => ['admin', 'editor', 'staff']],
         ];
 
         foreach ($seedRoles as $new_role) {
