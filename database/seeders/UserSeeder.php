@@ -37,6 +37,22 @@ class UserSeeder extends Seeder
                 'permissions' => [],
                 'roles' => ['client'],
             ],
+            [
+                'id' => 1001,
+                'name' => 'Editor User',
+                'email' => 'editor@example.com',
+                'password' => bcrypt('Password1'),
+                'permissions' => [],
+                'roles' => ['editor','client'],
+            ],
+            [
+                'id' => 1002,
+                'name' => 'Writer User',
+                'email' => 'writer@example.com',
+                'password' => bcrypt('Password1'),
+                'permissions' => [],
+                'roles' => ['writer'],
+            ]
 
         ];
 
@@ -48,7 +64,7 @@ class UserSeeder extends Seeder
             unset($seedUser['permissions']);
             unset($seedUser['roles']);
 
-            $user = User::create($seedUser);
+            $user = User::updateOrCreate(['email'=>$seedUser['email']], $seedUser);
             $user->permissions()->sync($permissions);
             $user->syncRoles($roles);
         }
